@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:7000");
+const socket = io("http://localhost:7070");
 let rooms = ["global"];
 var audio = new Audio("./Notification.mp3");
 const container = document.getElementById("messages");
@@ -60,5 +60,5 @@ socket.on("leave", (name) => {
 });
 
 const userName = prompt("Enter your name : ");
-socket.emit("user-joined", userName);
+socket.emit("user-joined", userName ? userName : "Anonymous");
 input.focus();
